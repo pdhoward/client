@@ -1,0 +1,88 @@
+
+testing multistep interactions 
+
+DEV NOTES
+--------------------------
+
+
+incorporate flip move
+
+http://joshwcomeau.github.io/react-flip-move/examples/#/?_k=vauzww
+
+https://github.com/joshwcomeau/react-flip-move/blob/gh-pages/examples/components/1_Shuffle.jsx
+
+----------------
+
+NOTE - for react-jsonschema-form -- GREAT EXAMPLES
+https://github.com/mozilla-services/react-jsonschema-form#tips-and-tricks
+
+
+------------------------
+0 formik
+
+https://draftjs.org/
+
+https://hackernoon.com/painless-react-forms-with-formik-e61b70473c60
+https://codesandbox.io/s/zl8zr8yqx
+
+
+https://keyholesoftware.com/2017/10/23/the-joy-of-forms-with-react-and-formik/
+
+https://www.npmjs.com/package/react-virtualized-select
+
+form examples
+https://github.com/in-the-keyhole/khs-react-form-demo
+
+> Includes Yup
+
+https://www.npmjs.com/package/yup
+------------------
+
+
+1. Webpage to display all messages in mongodb ---pagination -- to thumb through messages on mogodb
+https://github.com/AdeleD/react-paginate
+
+-------------
+
+2 intercom widget (may need to include the project -- or publish my own npm module to ensure it remains stable)
+
+all from reactlive
+
+https://www.npmjs.com/package/react-chat-window
+----------------
+
+
+4 . Registration page for new members -- 
+
+json form+multistep+intercom widget -- 
+
+all part of multitest.js
+
+https://mozilla-services.github.io/react-jsonschema-form/
+https://github.com/mozilla-services/react-jsonschema-form
+https://www.npmjs.com/package/react-jsonschema-form
+
+---------------
+5. example forms -- download and run the example
+https://github.com/prometheusresearch/react-forms
+
+https://github.com/davezuko/react-reformed
+----
+
+6 styling example for react forms
+
+https://www.npmjs.com/package/react-jsonschema-form#installation
+
+demo -- shows demo of using 
+https://github.com/audibene-labs/react-jsonschema-form-layout/blob/master/demo/src/index.js
+
+form extras -- diffierent UI patterns
+https://www.npmjs.com/package/react-jsonschema-form-extras
+
+-- example with hideable field
+https://jsfiddle.net/kaihendry/7fb0vyzx/
+
+
+
+
+
