@@ -1,24 +1,25 @@
 
-
-//////////////////////////////////////////////////////////////////////////
-/////////////////  Main App for Bot Contact Mgmt        //////////////////
-/////////////////    Connecting Business to Bots   //////////////////////
 ////////////////////////////////////////////////////////////////////////
-
+/////////////////  Main App for Agent Store          //////////////////
+/////////////////    Connecting Business to Bots   ///////////////////
+//////////////////////////////////////////////////////////////////////
 
 import React, { Component }   from 'react';
 import ListContacts           from './ListContacts';
 import * as ContactsAPI       from './utils/ContactsAPI'
-import CreateProfile          from './CreateProfile'
-import EditProfile            from './EditProfile'
-import Chat                   from './components/Chat'
-import { Route }              from 'react-router-dom'
+import NavBar                 from './NavBar';
+import Home                   from "./components/common/Home";
+import About                  from "./components/common/About";
+import Blog                   from "./components/common/Blog";
+import Contact                from "./components/common/Contact";
+
 
 // note lifecycle method to load all contacts when mounted
 
 class App extends Component {
   state = {
-    contacts: [ ]
+    contacts: [ ],
+    currentPage: "Home"
   }
 
   removeContact = (contact) => {
@@ -44,6 +45,23 @@ class App extends Component {
       })
     })
   }
+
+  handlePageChange = page => {
+    this.setState({ currentPage: page });
+  };
+
+  renderPage = () => {
+    if (this.state.currentPage === "Home") {
+      return <Home />;
+    } else if (this.state.currentPage === "About") {
+      return <About />;
+    } else if (this.state.currentPage === "Blog") {
+      return <Blog />;
+    } else {
+      return <Contact />;
+    }
+  };
+
   componentDidMount() {
     ContactsAPI.getAll().then((contacts) => {
       this.setState({ contacts })
@@ -52,38 +70,15 @@ class App extends Component {
   render() {
     return (
       <div className = 'app'>
-        <Route exact path ="/" render={() => (
-          <ListContacts
+        <NavBar
+            currentPage={this.state.currentPage}
+            handlePageChange={this.handlePageChange}
+          />
+        <ListContacts
             onDeleteContact = { this.removeContact }
             contacts={this.state.contacts}
-            />
-          )} />
-
-        <Route exact path ="/profile" render={({history}) => (
-          <CreateProfile
-            onCreateProfile={ (profile) => {
-              this.createProfile(profile)
-              history.push('/')
-            }}
-            />
-          )} />
-
-        <Route exact path ="/chat" render={() => (
-          <Chat
-            contacts={this.state.contacts}
-            />
-          )} />
-
-        <Route path ="/edit/:contact" render={({history, match}) => (
-          <EditProfile
-              params={match.params}
-              onUpdateProfile={ (profile) => {
-                this.updateProfile(profile, function(){
-                  history.push('/')
-                })
-              }}
-              />
-            )} />
+          />
+        {this.renderPage()}
        </div>
     );
   }

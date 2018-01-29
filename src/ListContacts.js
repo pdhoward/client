@@ -5,7 +5,6 @@
 ////////////////////////////////////////////////////////////////////////
 
 import React, {Component}     from 'react'
-import { Link }               from 'react-router-dom'
 import PropTypes              from 'prop-types'
 import escapeRegExp           from 'escape-string-regexp'
 import sortBy                 from 'sort-by'
@@ -29,19 +28,8 @@ class ListContacts extends Component {
   }
 
 
-// need to refactor code so that it is egneric to the alerts (maybe an array of items)
-  showAlert1 = (contact) => {
-    if (contact) return "Prayer Alert"
-  }
-  showAlert2 = (contact) => {
-    if (contact) return "Moments"
-  }
-  showAlert3 = (contact) => {
-    if (contact) return "Weekly Updates"
-  }
-
   render() {
-    const { contacts, onDeleteContact } = this.props    
+    const { contacts, onDeleteContact } = this.props
     const { query } = this.state
 
     let showingContacts
@@ -67,14 +55,6 @@ class ListContacts extends Component {
             value={this.state.query}
             onChange = { (event) => this.updateQuery(event.target.value)}
           />
-        <Link
-          to="/profile"
-          className = "add-contact"
-        >Add Profile</Link>
-        <Link
-          to="/chat"
-          className = "add-chat"
-        >Chat</Link>
 
       </div>
 
@@ -100,19 +80,10 @@ class ListContacts extends Component {
               </div>
               <div className='contact-details'>
                 <strong>Subscriptions</strong>
-                  {this.showAlert1(contact.subscribe.prayeralerts)} <b></b>
-                  {this.showAlert2(contact.subscribe.moments)} <b></b>
-                  {this.showAlert3(contact.subscribe.updates)} <b></b>
                 <pre>
                 </pre>
                 <p>{contact.id}</p>
               </div>
-
-              <Link
-                to={"/edit/" + encodeURIComponent(JSON.stringify(contact))}
-                className = "contact-edit">
-                Edit
-              </Link>
 
               <button  onClick={()=>onDeleteContact(contact)} className='contact-remove' >
                 Delete
