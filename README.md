@@ -20,11 +20,11 @@ Also, install the backend db server
 
 
 ## License and Use
- [LICENSE](.github/LICENSE.txt).
+ [LICENSE](./.github/LICENSE.txt).
 
 ## Contributing
 
-For details, check out [CONTRIBUTING](.github/CONTRIBUTING.md).
+For details, check out [CONTRIBUTING](./.github/CONTRIBUTING.md).
 
 xio labs and affiliates
 connecting businesses with the conversational economy
