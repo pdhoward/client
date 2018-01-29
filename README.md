@@ -20,7 +20,7 @@ Also, install the backend db server
 
 
 ## License and Use
- [LICENSE](./.github/LICENSE.txt).
+ [LICENSE](LICENSE.txt).
 
 ## Contributing
 
