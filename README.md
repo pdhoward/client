@@ -26,5 +26,9 @@ Also, install the backend db server
 
 For details, check out [CONTRIBUTING](./.github/CONTRIBUTING.md).
 
+## Code of Conduct
+
+[CODE OF CONDUCT](./.github/CODE_OF_CONDUCT.md).
+
 xio labs and affiliates
 connecting businesses with the conversational economy
