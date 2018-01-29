@@ -9,7 +9,7 @@ import PropTypes              from 'prop-types'
 import escapeRegExp           from 'escape-string-regexp'
 import sortBy                 from 'sort-by'
 
-class ListContacts extends Component {
+class ListClients extends Component {
 
   static propTypes = {
     contacts: PropTypes.array.isRequired,
@@ -67,22 +67,27 @@ class ListContacts extends Component {
       )}
 
       <ol className='contact-list'>
+        <h4>Our Customers</h4>
         {showingContacts.map((contact) => (
             <li key={contact.id} className='contact-list-item'>
               <div className='contact-avatar' style={{
-                backgroundImage: `url(${contact.avatarURL})`
+                backgroundImage: `url(${contact.image})`
                 }}
                 />
               <div className='contact-details'>
-                <p>{contact.firstname + " " + contact.lastname }</p>
-                <p>{contact.email}</p>
-                <p>{contact.cell}</p>
+                <p>{contact.name}</p>
+                <p>{contact.addr1}</p>
+                <p>{contact.addr2}</p>
+                <p>{contact.city + " " + contact.state + " " + contact.zip}</p>
               </div>
               <div className='contact-details'>
-                <strong>Subscriptions</strong>
-                <pre>
-                </pre>
+                <strong>Contact</strong>
+                <p>{contact.contact}</p>
+                <p>{contact.phone}</p>
+                <strong>Last Updated</strong>
+                <p>{contact.postdate}</p>
                 <p>{contact.id}</p>
+
               </div>
 
               <button  onClick={()=>onDeleteContact(contact)} className='contact-remove' >
@@ -98,4 +103,4 @@ class ListContacts extends Component {
   }
 }
 
-export default ListContacts
+export default ListClients

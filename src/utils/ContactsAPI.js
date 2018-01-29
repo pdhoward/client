@@ -10,6 +10,8 @@ const headers = {
   'Authorization': token
 }
 
+
+// set of APIs for Agent Collections
 export const getAll = () =>
   fetch(`${apiProfile}/api/dba`, { headers })
     .then(res => res.json())
@@ -18,12 +20,13 @@ export const getAll = () =>
     })
 
 export const remove = (contact) =>
-  fetch(`${apiProfile}/api/${contact.id}`, { method: 'DELETE', headers })
+  fetch(`${apiProfile}/api/dba/${contact.id}`, {
+    method: 'DELETE', headers })
     .then(res => res.json())
     .then(data => data.contact)
 
 export const create = (body) =>
-  fetch(`${apiProfile}/api`, {
+  fetch(`${apiProfile}/api/dba`, {
     method: 'POST',
     headers: {
       ...headers,
@@ -33,7 +36,7 @@ export const create = (body) =>
   }).then(res => res.json())
 
 export const updateProfile = (body) =>
-    fetch(`${apiProfile}/api/updateMember`, {
+    fetch(`${apiProfile}/api/dba`, {
       method: 'POST',
       headers: {
         ...headers,
@@ -44,16 +47,38 @@ export const updateProfile = (body) =>
     .then(res => res.json())
     .then(data => data)
 
-// refactor - test chat
-export const updateRegistration = (body, cb) => {
-    fetch(`${apiProfile}/chat`, {
-      method: 'POST',
-      headers: {
-        ...headers,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    })
-    .then(res => res.json())
-    .then(data => cb(data))
-  }
+    // set of APIs for Client Collection
+    export const getAllClients = () =>
+      fetch(`${apiProfile}/api/dbc`, { headers })
+        .then(res => res.json())
+        .then((data) => {
+          return data
+        })
+
+    export const removeClient = (contact) =>
+      fetch(`${apiProfile}/api/dbc/${contact.id}`, {
+         method: 'DELETE', headers })
+        .then(res => res.json())
+        .then(data => data.contact)
+
+    export const createClient = (body) =>
+      fetch(`${apiProfile}/api/dbc`, {
+        method: 'POST',
+        headers: {
+          ...headers,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      }).then(res => res.json())
+
+    export const updateClient = (body) =>
+        fetch(`${apiProfile}/api/dbc`, {
+          method: 'POST',
+          headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        })
+        .then(res => res.json())
+        .then(data => data)

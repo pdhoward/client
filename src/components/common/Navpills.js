@@ -1,18 +1,18 @@
 import React from "react";
 
 const Navpills = props =>
-  <ul className="nav nav-tabs">
+  <ul className="nav nav-pills mb-3">
     <li
-      onClick={() => props.handlePageChange("Home")}
-      className={props.currentPage === "Home" ? "active" : ""}
+      onClick={() => props.handlePageChange("Agents")}
+      className={props.currentPage === "Agents" ? "active" : ""}
     >
-      <a>Home</a>
+      <a>Agents</a>
     </li>
     <li
-      onClick={() => props.handlePageChange("About")}
-      className={props.currentPage === "About" ? "active" : ""}
+      onClick={() => props.handlePageChange("Clients")}
+      className={props.currentPage === "Clients" ? "active" : ""}
     >
-      <a>About</a>
+      <a>Clients</a>
     </li>
     <li
       onClick={() => props.handlePageChange("Blog")}

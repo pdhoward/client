@@ -5,9 +5,10 @@
 //////////////////////////////////////////////////////////////////////
 
 import React, { Component }   from 'react';
-import ListContacts           from './ListContacts';
+import ListAgents             from './components/agent/ListAgents';
+import ListClients            from './components/client/ListClients';
 import * as ContactsAPI       from './utils/ContactsAPI'
-import NavBar                 from './NavBar';
+import Navpills               from './components/common/Navpills';
 import Home                   from "./components/common/Home";
 import About                  from "./components/common/About";
 import Blog                   from "./components/common/Blog";
@@ -18,8 +19,9 @@ import Contact                from "./components/common/Contact";
 
 class App extends Component {
   state = {
-    contacts: [ ],
-    currentPage: "Home"
+    agents: [ ],
+    clients: [ ],
+    currentPage: "Agents"
   }
 
   removeContact = (contact) => {
@@ -51,10 +53,20 @@ class App extends Component {
   };
 
   renderPage = () => {
-    if (this.state.currentPage === "Home") {
-      return <Home />;
-    } else if (this.state.currentPage === "About") {
-      return <About />;
+    if (this.state.currentPage === "Agents") {
+
+      return <ListAgents
+                onDeleteContact = { this.removeContact }
+                contacts={this.state.agents}
+              />
+
+    } else if (this.state.currentPage === "Clients") {    
+
+       return <ListClients
+                 onDeleteContact = { this.removeContact }
+                 contacts={this.state.clients}
+               />
+
     } else if (this.state.currentPage === "Blog") {
       return <Blog />;
     } else {
@@ -63,20 +75,20 @@ class App extends Component {
   };
 
   componentDidMount() {
-    ContactsAPI.getAll().then((contacts) => {
-      this.setState({ contacts })
-    })
-  }
+        ContactsAPI.getAll().then((agents) => {
+          this.setState({ agents })
+        })
+        ContactsAPI.getAllClients().then((clients) => {
+             this.setState({ clients })
+           })
+      }
+
   render() {
     return (
       <div className = 'app'>
-        <NavBar
+        <Navpills
             currentPage={this.state.currentPage}
             handlePageChange={this.handlePageChange}
-          />
-        <ListContacts
-            onDeleteContact = { this.removeContact }
-            contacts={this.state.contacts}
           />
         {this.renderPage()}
        </div>
