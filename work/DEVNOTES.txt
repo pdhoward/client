@@ -4,3 +4,18 @@ MYDEVNOTES
 
 Your assignment
 
+
+1. Create a ListClients.js component, modeled closely after the ListAgents.js component
+
+This component should be stored in the folder src/client
+
+It will vary from ListAgents in the render method since the agents and clients collections have different fields
+
+Note that the api in the src/utils folder already exists to getAll client objects from Mongo, and to delete a record as well
+
+2. In App.js, modify the workflow so that when the menu 'Client' is selected, the component ListClients is rendered
+
+Model the manner in which ListAgents is handled by App.js, paying close attention to the lifecycle method componentDidMount
+
+
+

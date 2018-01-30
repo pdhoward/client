@@ -20,7 +20,7 @@ export const getAll = () =>
     })
 
 export const remove = (contact) =>
-  fetch(`${apiProfile}/api/dba/${contact.id}`, {
+  fetch(`${apiProfile}/api/dba/${contact}`, {
     method: 'DELETE', headers })
     .then(res => res.json())
     .then(data => data.contact)
