@@ -24,14 +24,21 @@ class App extends Component {
     currentPage: "Agents"
   }
 
-  removeContact = (contact) => {
+  removeAgentContact = (contact) => {
     ContactsAPI.remove(contact).then(cnt =>{
       this.setState( (state) => ({
-        contacts: state.contacts.filter((c) => c.id !== contact.id )
+        agents: state.agents.filter((c) => c.id !== contact.id )
       }) )
     })
   }
-
+  removeClientContact = (contact) => {
+    ContactsAPI.remove(contact).then(cnt =>{
+      this.setState( (state) => ({
+        clients: state.clients.filter((c) => c.id !== contact.id )
+      }) )
+    })
+  }
+  /*
   createProfile(profile) {
     ContactsAPI.create(profile).then(profile => {
       this.setState(state => ({
@@ -47,7 +54,7 @@ class App extends Component {
       })
     })
   }
-
+*/
   handlePageChange = page => {
     this.setState({ currentPage: page });
   };
@@ -56,14 +63,14 @@ class App extends Component {
     if (this.state.currentPage === "Agents") {
 
       return <ListAgents
-                onDeleteContact = { this.removeContact }
+                onDeleteContact = { this.removeAgentContact }
                 contacts={this.state.agents}
               />
 
-    } else if (this.state.currentPage === "Clients") {    
+          } else if (this.state.currentPage === "Clients") {
 
        return <ListClients
-                 onDeleteContact = { this.removeContact }
+                 onDeleteContact = { this.removeClientContact }
                  contacts={this.state.clients}
                />
 
@@ -91,6 +98,7 @@ class App extends Component {
             handlePageChange={this.handlePageChange}
           />
         {this.renderPage()}
+
        </div>
     );
   }

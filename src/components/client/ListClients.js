@@ -36,14 +36,14 @@ class ListClients extends Component {
 
     if (query) {
       const match = new RegExp(escapeRegExp(query), 'i')
-      showingContacts = contacts.filter((contact) => match.test(contact.lastname))
+      showingContacts = contacts.filter((contact) => match.test(contact.contact))
 
     }
     else {
       showingContacts = contacts
     }
 
-    showingContacts.sort(sortBy('firstname'))
+    showingContacts.sort(sortBy('name'))
 
     return (
       <div className = 'list-contacts'>
