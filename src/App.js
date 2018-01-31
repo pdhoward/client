@@ -25,36 +25,20 @@ class App extends Component {
   }
 
   removeAgentContact = (contact) => {
-    ContactsAPI.remove(contact).then(cnt =>{
+    ContactsAPI.remove(contact.id).then(cnt =>{
       this.setState( (state) => ({
         agents: state.agents.filter((c) => c.id !== contact.id )
       }) )
     })
   }
   removeClientContact = (contact) => {
-    ContactsAPI.remove(contact).then(cnt =>{
+    ContactsAPI.removeClient(contact.id).then(cnt =>{
       this.setState( (state) => ({
         clients: state.clients.filter((c) => c.id !== contact.id )
       }) )
     })
   }
-  /*
-  createProfile(profile) {
-    ContactsAPI.create(profile).then(profile => {
-      this.setState(state => ({
-        contacts: state.contacts.concat([profile])
-      }))
-    })
-  }
-  updateProfile(profile, cb) {
-    ContactsAPI.updateProfile(profile).then(profile => {
-      ContactsAPI.getAll().then((contacts) => {
-          this.setState({ contacts })
-          cb()
-      })
-    })
-  }
-*/
+
   handlePageChange = page => {
     this.setState({ currentPage: page });
   };

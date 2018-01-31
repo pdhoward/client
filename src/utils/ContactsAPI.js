@@ -56,7 +56,7 @@ export const updateProfile = (body) =>
         })
 
     export const removeClient = (contact) =>
-      fetch(`${apiProfile}/api/dbc/${contact.id}`, {
+      fetch(`${apiProfile}/api/dbc/${contact}`, {
          method: 'DELETE', headers })
         .then(res => res.json())
         .then(data => data.contact)
