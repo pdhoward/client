@@ -1,9 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "engines": {
-    "node": ">=4.0.0",
-    "npm": ">=3.0.0"
+  "engines": {  
   },
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
