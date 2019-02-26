@@ -1,7 +1,7 @@
 
 ## Client
 
-A small working prototype used to investigate design options and tradeoffs in a web application
+A small working prototype used to investigate design options, styling and tradeoffs in a web application
 
 This web app is intended to be used with a backend mongo server
 ## Getting Set Up
@@ -34,5 +34,5 @@ For details, check out [CONTRIBUTING](./.github/CONTRIBUTING.md).
 
 [CODE OF CONDUCT](./.github/CODE_OF_CONDUCT.md).
 
-xio labs and affiliates
+Strategic Machines and affiliates
 connecting businesses with the conversational economy
